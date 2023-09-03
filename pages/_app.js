@@ -1,9 +1,12 @@
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
+import Layout from "../components/Layout";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <Component {...pageProps} />
+    <Layout >
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 

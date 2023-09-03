@@ -1,11 +1,26 @@
-import styles from '../styles/Home.module.css';
+import { useState, useRef } from "react";
+import Books from "../components/Books";
+import SearchBooks from "../components/SearchBooks";
+import books from "../data/books.json";
 
 const Home = () => {
+  const inputRef = useRef(null);
+  const [searchString, setSearchString] = useState("");
+
+  const handleSearch = () => {
+    setSearchString(inputRef.current.value);
+  };
+
   return (
-    <>     
-        <h1 className={styles.container}>Hello World</h1>
+    <>
+      <SearchBooks
+        searchString={searchString}
+        handleSearch={handleSearch}
+        inputRef={inputRef}
+      />
+      <Books books={books} searchString={searchString} />
     </>
   );
-}
+};
 
 export default Home;
